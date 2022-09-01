@@ -1,0 +1,237 @@
+:root {
+	--primary-cyan: hsl(172, 67%, 45%);
+
+	--neutral-cyan: hsl(183, 100%, 15%);
+	--neutral-dgrayish-cyan: hsl(186, 14%, 43%);
+	--neutral-grayish-cyan: hsl(184, 14%, 56%);
+	--neutral-lgrayish-cyan: hsl(185, 41%, 84%);
+	--neutral-vlgrayish-cyan: hsl(189, 41%, 97%);
+	--neutral-white: hsl(0, 0%, 100%);
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	outline: none;
+	list-style: none;
+	text-decoration: none;
+}
+
+body {
+	font-family: "Space Mono", monospace;
+	font-size: 24px;
+	background: var(--neutral-lgrayish-cyan);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100vw;
+	height: 100vh;
+}
+
+.logo {
+	width: 80px;
+}
+
+.logo img {
+	width: 100%;
+}
+
+.calculator {
+	width: 60%;
+	height: 450px;
+	background: var(--neutral-white);
+	padding: 2rem;
+	border-radius: 20px;
+	margin-top: 2%;
+	display: grid;
+	grid-template-columns: repeat(2, 48%);
+	gap: 2rem;
+}
+
+.calc-left {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	border-radius: 15px;
+	padding-left: 10px;
+}
+
+.calc-left label {
+	font-size: 0.9rem;
+	color: var(--neutral-dgrayish-cyan);
+	margin-bottom: 5px;
+}
+
+.amount,
+.people-count {
+	position: relative;
+	width: 100%;
+	height: 50px;
+	/* border-radius: 5px; */
+}
+
+.left-icons {
+	position: absolute;
+	padding-left: 5%;
+	height: 100%;
+	background-color: transparent;
+	display: flex;
+	align-items: center;
+}
+
+.amount input,
+.people-count .person {
+	width: 100%;
+	height: 50px;
+	border: none;
+	background-color: var(--neutral-vlgrayish-cyan);
+	text-align: right;
+	cursor: text;
+	padding-right: 5%;
+	font-family: inherit;
+	color: var(--neutral-cyan);
+	font-size: 1.5rem;
+	z-index: 100;
+	border-radius: 5px;
+}
+
+.amount input:focus,
+.people-count .person:focus,
+.percentage-tips input:focus {
+	outline: 2px solid var(--primary-cyan);
+}
+
+.percentage-tips {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+	gap: 10px;
+	margin-top: 10px;
+}
+
+.percentage-tips button {
+	height: 50px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	background: var(--neutral-cyan);
+	font-size: 1.5rem;
+	color: var(--neutral-white);
+	font-family: inherit;
+	transition: 0.5s;
+}
+
+.percentage-tips button:hover {
+	background: var(--primary-cyan);
+	color: var(--neutral-cyan);
+}
+
+.percentage-tips button.active {
+	background: var(--primary-cyan);
+	color: var(--neutral-cyan);
+}
+
+.percentage-tips input {
+	background: var(--neutral-vlgrayish-cyan);
+	color: var(--neutral-lgrayish-cyan);
+	border: none;
+	text-align: end;
+	cursor: text;
+	padding-right: 15%;
+	font-family: inherit;
+	font-size: 1.5rem;
+	border-radius: 5px;
+	color: var(--neutral-cyan);
+}
+
+.peoplenumber {
+	display: flex;
+	justify-content: space-between;
+}
+
+.peoplenumber #error {
+	color: red;
+	font-size: 0.8rem;
+	display: none;
+}
+
+.calc-right {
+	background: var(--neutral-cyan);
+	border-radius: 15px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	position: relative;
+	padding: 40px 30px;
+	height: 100%;
+}
+
+.total-amount,
+.total-per-person {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.total-left {
+	display: flex;
+	flex-direction: column;
+	padding: 10px 0px;
+}
+
+.total-left p {
+	font-size: 1rem;
+	color: var(--neutral-lgrayish-cyan);
+}
+
+.total-left small {
+	font-size: 0.8rem;
+	color: var(--neutral-dgrayish-cyan);
+	opacity: 0.9;
+}
+
+.total-right {
+	font-size: 3rem;
+	color: var(--primary-cyan);
+}
+
+.right-bottom {
+	width: 100%;
+	height: 50px;
+}
+
+.right-bottom button {
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	border-radius: 10px;
+	border: none;
+	text-transform: uppercase;
+	font-size: 1.4rem;
+	font-family: inherit;
+	color: var(--neutral-cyan);
+	background: hsl(183, 79%, 24%);
+	transition: 0.4s;
+}
+
+.right-bottom button:hover {
+	background: var(--primary-cyan);
+}
+
+/* --------------------------- Mobile display ----------------------------------- */
+
+@media only screen and (max-width: 400px) {
+	body {
+		width: 100%;
+	}
+	.logo {
+		margin-top: 50%;
+		padding: 50px 0px;
+	}
+	.calculator {
+		width: 99%;
+		height: 800px;
+		grid-template-columns: 99%;
+	}
+}
